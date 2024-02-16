@@ -4,10 +4,11 @@ namespace App\Domain\Service;
 
 use App\Domain\Entity\Ad;
 use App\Domain\Enum\MinimumAdScore;
+use App\Domain\Interface\CalculateScoreInterface;
 
 final class AdFilter
 {
-    public function __construct(private CalculateScore $calculateScore)
+    public function __construct(private CalculateScoreInterface $calculateScore)
     {
     }
 

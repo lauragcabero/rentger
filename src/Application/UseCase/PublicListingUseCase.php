@@ -23,8 +23,6 @@ final class PublicListingUseCase
         $adsWithScoresAndFiltered = $this->toDTO($this->adFilter->filter($ads));
         if ($orderBy !== null) {
             usort($adsWithScoresAndFiltered, fn(PublicAd $ad1, PublicAd $ad2) => $ad2->score <=> $ad1->score);
-            
-            return $adsWithScoresAndFiltered;
         }
         
         return $adsWithScoresAndFiltered;
