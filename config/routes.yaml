@@ -1,0 +1,5 @@
+calculate_score:
+    path: /ads/calculate-score
+    controller: 'App\Infrastructure\Api\Controller\CalculateScoreController::__invoke'
+    methods: GET
+
