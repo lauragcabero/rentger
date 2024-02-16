@@ -8,3 +8,8 @@ public_listing:
     controller: 'App\Infrastructure\Api\Controller\PublicListingController::__invoke'
     methods: GET
 
+quality_listing:
+    path: /ads/quality-listing
+    controller: 'App\Infrastructure\Api\Controller\QualityListingController::__invoke'
+    methods: GET
+

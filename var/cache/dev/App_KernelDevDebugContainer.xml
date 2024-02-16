@@ -86,6 +86,10 @@
       <argument type="service" id="App\Domain\Service\CalculateScore"/>
       <argument type="service" id="App\Domain\Service\AdFilter"/>
     </service>
+    <service id="App\Application\UseCase\QualityListingUseCase" class="App\Application\UseCase\QualityListingUseCase" autowire="true" autoconfigure="true">
+      <argument type="service" id="App\Application\Service\DataRetrievalService"/>
+      <argument type="service" id="App\Domain\Service\CalculateScore"/>
+    </service>
     <service id="App\Domain\Entity\Ad" class="App\Domain\Entity\Ad" autowire="true" autoconfigure="true"/>
     <service id="App\Domain\Entity\Picture" class="App\Domain\Entity\Picture" autowire="true" autoconfigure="true"/>
     <service id="App\Domain\Service\AdFilter" class="App\Domain\Service\AdFilter" autowire="true" autoconfigure="true">
@@ -114,6 +118,11 @@
     </service>
     <service id="App\Infrastructure\Api\Controller\QualityListingController" class="App\Infrastructure\Api\Controller\QualityListingController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <argument type="service" id="App\Application\UseCase\QualityListingUseCase"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.Ejq_DCG.App\Infrastructure\Api\Controller\QualityListingController"/>
+      </call>
     </service>
     <service id="controller_resolver" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver">
       <tag name="monolog.logger" channel="request"/>
@@ -1175,6 +1184,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Infrastructure\Api\Controller\PublicListingController" class="App\Infrastructure\Api\Controller\PublicListingController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Infrastructure\Api\Controller\PublicListingController" class="App\Infrastructure\Api\Controller\PublicListingController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Infrastructure\Api\Controller\PublicListingController" class="App\Infrastructure\Api\Controller\PublicListingController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Infrastructure\Api\Controller\QualityListingController" class="App\Infrastructure\Api\Controller\QualityListingController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Infrastructure\Api\Controller\QualityListingController" class="App\Infrastructure\Api\Controller\QualityListingController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Infrastructure\Api\Controller\QualityListingController" class="App\Infrastructure\Api\Controller\QualityListingController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.gSv9zYw" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -1240,6 +1252,12 @@
     <service id=".service_locator.Ejq_DCG.App\Infrastructure\Api\Controller\PublicListingController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Infrastructure\Api\Controller\PublicListingController"/>
       <argument>App\Infrastructure\Api\Controller\PublicListingController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.Ejq_DCG" method="withContext"/>
+    </service>
+    <service id=".service_locator.Ejq_DCG.App\Infrastructure\Api\Controller\QualityListingController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Infrastructure\Api\Controller\QualityListingController"/>
+      <argument>App\Infrastructure\Api\Controller\QualityListingController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.Ejq_DCG" method="withContext"/>
     </service>

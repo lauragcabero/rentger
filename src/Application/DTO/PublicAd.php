@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Application\DTO;
 
+use DateTimeImmutable;
+
 final class PublicAd
 {
     public function __construct(
@@ -13,7 +15,8 @@ final class PublicAd
         public array $pictureUrls,
         public int $houseSize,
         public ?int $gardenSize = null,
-        public ?int $score = null
+        public ?int $score = null,
+        public ?DateTimeImmutable $irrelevantSince = null,
     ) {
     }
 }
