@@ -7,7 +7,7 @@ namespace App\Application\Service;
 use App\Domain\Interface\AdPersistenceInterface;
 use App\Domain\Interface\PicturePersistenceInterface;
 
-final class DataRetrievalService
+final class DataRetrievalService implements DataRetrievalServiceInterface
 {
     public function __construct(
         private AdPersistenceInterface $adPersistence,
