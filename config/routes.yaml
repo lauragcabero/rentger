@@ -3,3 +3,8 @@ calculate_score:
     controller: 'App\Infrastructure\Api\Controller\CalculateScoreController::__invoke'
     methods: GET
 
+public_listing:
+    path: /ads/public-listing
+    controller: 'App\Infrastructure\Api\Controller\PublicListingController::__invoke'
+    methods: GET
+

@@ -9,6 +9,7 @@ return [
     false, // $matchHost
     [ // $staticRoutes
         '/ads/calculate-score' => [[['_route' => 'calculate_score', '_controller' => 'App\\Infrastructure\\Api\\Controller\\CalculateScoreController::__invoke'], null, ['GET' => 0], null, false, false, null]],
+        '/ads/public-listing' => [[['_route' => 'public_listing', '_controller' => 'App\\Infrastructure\\Api\\Controller\\PublicListingController::__invoke'], null, ['GET' => 0], null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

@@ -16,8 +16,8 @@ final class CalculateScoreController extends AbstractController
     }
 
     #[Route('/ads/calculate-score', name: 'ads_calculate_score', methods: ['GET'])]
-    public function __invoke(CalculateScoreUseCase $useCase): JsonResponse
+    public function __invoke(): JsonResponse
     {
-        return new JsonResponse($useCase());
+        return new JsonResponse($this->useCase->__invoke());
     }
 }
