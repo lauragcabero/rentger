@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Entity;
 
+use App\Domain\ValueObject\Score;
 use DateTimeImmutable;
 
 final class Ad
@@ -15,7 +16,7 @@ final class Ad
         private array $pictures,
         private int $houseSize,
         private ?int $gardenSize = null,
-        private ?int $score = null,
+        private ?Score $score = null,
         private ?DateTimeImmutable $irrelevantSince = null,
     ) {
     }
@@ -50,7 +51,7 @@ final class Ad
         return $this->gardenSize;
     }
 
-    public function getScore(): ?int
+    public function getScore(): ?Score
     {
         return $this->score;
     }   
